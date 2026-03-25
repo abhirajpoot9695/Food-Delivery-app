@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -10,15 +10,35 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import Loader from "./components/Loader/Loader";
+import { useEffect, useState } from "react";
+
 
 const App = () => {
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  
+    return () => clearTimeout(timer);
+  }, []);
+
   const [showLogin, setShowLogin] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   return (
+    <>
+    {loading ? ( 
+      <Loader />
+    ): (
+  
     <>
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <div className="app">
         <ToastContainer />
         <Navbar setShowLogin={setShowLogin} />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
@@ -29,7 +49,9 @@ const App = () => {
       </div>
       <Footer />
     </>
+  )};
+  </>
   );
-};
+}
 
 export default App;

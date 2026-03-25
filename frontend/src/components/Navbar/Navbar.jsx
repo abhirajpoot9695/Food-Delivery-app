@@ -9,6 +9,7 @@ const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate=useNavigate();
+  const [ShowSearch, setShowSearch] =useState(false);
 
   const logout=()=>{
     localStorage.removeItem("token");
@@ -51,8 +52,16 @@ const Navbar = ({ setShowLogin }) => {
           contact us
         </a>
       </ul>
+        {ShowSearch && (
+       <div className="search-popup">
+    
+     <input  type="text" placeholder="Search here..." autoFocus />
+     <button onClick={() => setShowSearch(false)}>x</button>
+       </div>
+      )}
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="" />
+        <img src={assets.search_icon} alt=""  onClick={() => setShowSearch(true)}
+        style={{cursor: "pointer"}}/>
         <div className="navbar-search-icon">
           <Link to="/cart">
             <img  src={assets.basket_icon} alt=""  />
