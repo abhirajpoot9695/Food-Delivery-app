@@ -1,27 +1,29 @@
 import React from 'react';
 import './About.css';
+import { useNavigate } from 'react-router-dom';
 
 const AboutPage = () => {
+
+  const navigate = useNavigate();
+
+
   return (
     <div className="about-container">
       {/* Header Section */}
       <header className="about-header animate-popIn">
         <h1>Welcome to <span className="brand-name">FoodieHub</span></h1>
-        <p>Aapki bhookh ka swadisht ilaaj, bas ek click door!</p>
+        <p>A delicious cure for your hunger—just a click away!</p>
       </header>
 
       {/* Main Content Section */}
       <section className="about-content">
         <div className="content-left animate-slideInLeft">
           <h2>Humaari Kahaani</h2>
-          <p>
-            FoodieHub ki shuruaat 2023 mein ek simple mission ke saath hui thi: 
-            shehar ke sabse behtareen khane ko logon ke darwaze tak pahunchana. 
-            Humaara maanna hai ki accha khana sirf pet nahin bharta, balki khushiyaan bhi lata hai.
+          <p>FoodieHub began in 2023 with a simple mission: to deliver the city's 
+             finest food right to people's doorsteps. We believe that good food is not just...
           </p>
-          <p>
-            Aaj, hum hazaron restaurants ke saath milkar laakhon logon tak fresh aur 
-            swadisht khana pahuncha rahe hain, aur har delivery ke saath ek muskaan!
+          <p>Today, partnering with thousands of restaurants, we are delivering fresh and 
+            delicious food to millions of people—and a smile with every delivery!ery ke saath ek muskaan!
           </p>
         </div>
         <div className="content-right animate-slideInRight">
@@ -31,22 +33,22 @@ const AboutPage = () => {
 
       {/* Features/Values Section */}
       <section className="about-values">
-        <h2>Hum Par Kyun Bharosa Karein?</h2>
-        <div className="values-grid">
-          <div className="value-card animate-fadeIn">
+        <h2>Why should you trust us ?</h2>
+        <div className="values-grid" >
+          <div className="value-card animate-fadeIn" onClick={() => navigate('/deliverypage')}>
             <div className="icon">🚀</div>
             <h3>Tez Delivery</h3>
-            <p>Humaara delivery team ensure karta hai ki aapka khana garam aur fresh mile, on time.</p>
+            <p>Our delivery team ensures that you receive your food hot, fresh, and on time..</p>
           </div>
-          <div className="value-card animate-fadeIn delay-1">
+          <div className="value-card animate-fadeIn delay-1" onClick={() => navigate('/QualityRestaurants')}>
             <div className="icon">🥗</div>
             <h3>Quality Restaurants</h3>
-            <p>Hum sirf shehar ke best rated restaurants ke saath hi collaborate karte hain.</p>
+            <p>We only collaborate with the city's best-rated restaurants.</p>
           </div>
-          <div className="value-card animate-fadeIn delay-2">
+          <div className="value-card animate-fadeIn delay-2" onClick={() => navigate('/Affordable')} >
             <div className="icon">💰</div>
             <h3>Affordable Prices</h3>
-            <p>Pocket-friendly deals aur offers hamesha humaari priority hoti hai.</p>
+            <p>Pocket-friendly deals and offers are always our priority.</p>
           </div>
         </div>
       </section>

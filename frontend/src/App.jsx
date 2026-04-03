@@ -13,6 +13,9 @@ import MyOrders from "./pages/MyOrders/MyOrders";
 import Loader from "./components/Loader/Loader";
 import { useEffect, useState } from "react";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import DeliveryPage from "./pages/DeliveryPage/DeliveryPage"
+import QualityRestaurants from "./pages/QualityRestaurants/QualitRestaurant";
+import AffordablePrices from "./pages/AffordablePage/AffordablePrices";
 
 
 const App = () => {
@@ -47,6 +50,9 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path='/category/:categoryName' element={<CategoryPage/>} />
+          <Route path='/deliverypage' element={<DeliveryPage/>} />
+          <Route path='/QualityRestaurants' element={<QualityRestaurants/>} />
+          <Route path='/Affordable' element={<AffordablePrices/>} />
         </Routes>
       </div>
       <Footer />
