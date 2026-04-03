@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
 import FoodItem from '../../components/FoodItem/FoodItem'
-
+     
 const CategoryPage = () => {
     const { categoryName } = useParams(); // URL se "Rolls" nikalega
     const { food_list } = useContext(StoreContext);
-
+  
     return (
         <div className='category-page'>
             <h1>{categoryName} Special</h1>
